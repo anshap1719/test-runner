@@ -53,7 +53,8 @@
     "test-storybook:ci-coverage": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"yarn build-storybook --quiet && npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && yarn test-storybook --coverage\"",
     "test-storybook:ci-json": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"yarn build-storybook --quiet && npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && SKIP_SNAPSHOTS=true yarn test-storybook:json\"",
     "generate-dynamic-stories": "node scripts/generate-dynamic-stories.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "npm run build"
   },
   "devDependencies": {
     "@auto-it/released": "^10.37.1",
